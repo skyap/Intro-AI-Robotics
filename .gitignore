@@ -1,4 +1,4 @@
 *.pyc
-Session2/learning/checkpoints/
-Session2/learning/data/
-Session2/learning/logs/
+Session2/learning/checkpoints/*
+Session2/learning/data/*
+Session2/learning/logs/*
