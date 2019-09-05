@@ -39,8 +39,8 @@ from gym_duckietown.envs import DuckietownEnv
 from gym_duckietown.wrappers import UndistortWrapper
 from model import *
 
-model = MODEL((120,160,3))
-model.load_weights("checkpoints/Model-Best.h5")
+clf = MODEL((120,160,3))
+clf.load_weights("checkpoints/Model-Best.h5")
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--env-name', default='Duckietown')
@@ -107,7 +107,7 @@ def update(dt):
     global acts
     global img
 
-    pred = model.predict(np.expand_dims(resize(img,(120,160,3),preserve_range=True).astype(np.uint8),axis=0))
+    pred = clf.predict(np.expand_dims(resize(img,(120,160,3),preserve_range=True).astype(np.uint8),axis=0))
     pred = np.argmax(pred)
     print(acts[pred])
 
